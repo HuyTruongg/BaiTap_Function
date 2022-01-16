@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,90 @@
 
     <!-- BOOSTRAP  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 </head>
+
 <body>
-    
+    <div class="container">
+        <h2>QUẢN LÝ TUYỂN SINH</h2>
+        <form>
+            <div class="form-group">
+                <label for="">Điểm chuẩn</label>
+                <input type="email" class="form-control" id="diemChuan" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Điểm môn A</label>
+                <input type="number" class="form-control" id="monA">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Điểm môn B</label>
+                <input type="number" class="form-control" id="monB">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Điểm môn C</label>
+                <input type="number" class="form-control" id="monC">
+            </div>
+        </form>
+        <div class="form-check">
+            <h2>Nhập khu vực ưu tiên</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="kv1">
+                    Khu vực 1
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="kv2">
+                    Khu vực 2
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="kv3">
+                    Khu vực 3
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="kv4">
+                    Khác
+                </label>
+            </div>
+        </div>
+        <div class="form-check">
+            <h2>Nhập đối tượng ưu tiên</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="dt1">
+                    Đối tượng 1
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="dt2">
+                    Đối tượng 2
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="dt3">
+                    Đối tượng 3
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" id="dt4">
+                    Khác
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="tinhDiem">Trả kết quả</button>
+        <h3>Kết quả của thí sinh</h3>
+        <p id="result1"></p>
+
+    </div>
 
 
 
@@ -27,7 +107,8 @@
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
 
-        git
+
     <script src="./js/main.js"></script>
 </body>
+
 </html>
