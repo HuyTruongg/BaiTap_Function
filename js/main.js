@@ -42,6 +42,11 @@ document.getElementById("tinhDiem").onclick = function () {
     var diemDoiTuong = "";
     var thiDau = "";
     var tongDiem = 0;
+    // Điểm các môn
+    diemThi = monA + monB + monC;
+
+    tongDiem = diemKhuVuc + diemDoiTuong + diemThi;
+
     // Điểm liệt
     if (monA == 0 || monB == 0 || monC || 0) {
         console.log("Bạn đã rớt do có môn bị 0 điểm")
@@ -74,10 +79,54 @@ document.getElementById("tinhDiem").onclick = function () {
     }
     console.log(diemDoiTuong);
 
-    // Điểm các môn
-    diemThi = monA + monB + monC;
 
-    tongDiem = diemKhuVuc + diemDoiTuong + diemThi;
+
+
 
     document.getElementById("result1").innerHTML = thiDau;
-} 
+}
+
+
+/**
+ * BÀI 2 - TÍNH TIỀN ĐIỆN
+ * KHỐI 1
+ * nhập biến tên và số kw: ten, soKW
+ * KHỐI 2
+ * tính tiền theo số KW
+ *      0 < soKW <=50 : soKW * KW_50_DAU;
+ *      50 < soKW <=100 : 25000 + (soKW-50) * KW_50_KE;
+ *      100 < soKW <=200 : 25000 + 32500 + (soKW-100) * KW_100_KE;
+ *      200 < soKW <=350 : 25000 + 32500 + 85000 + (soKW-200) * KW_150_KE;
+ *      350 < soKW : 25000 + 32500 + 85000 + 165000 + (soKW-350) * KW_CONLAI;
+ * KHỐI 3
+ * thanhTien
+ */
+
+document.getElementById("tinhTienDien").onclick = function () {
+    var ten = document.getElementById("ten");
+    var soKW = Number(document.getElementById("soKW").value);
+
+    const KW_50_DAU = 500;
+    const KW_50_KE = 650;
+    const KW_100_KE = 850;
+    const KW_150_KE = 1100;
+    const KW_CONLAI = 1300;
+
+    thanhTien = 0;
+
+    if (0 < soKW && soKW <= 50) {
+        thanhTien = soKW * KW_50_DAU;
+    } else if (50 < soKW && soKW <= 100) {
+        thanhTien = 25000 + (soKW-50) * KW_50_KE;
+    } else if (100 < soKW && soKW <= 200) {
+        thanhTien = 25000 + 32500 + (soKW-100) * KW_100_KE;
+    } else if (200 < soKW && soKW <= 350) {
+        thanhTien = 25000 + 32500 + 85000 + (soKW-200) * KW_150_KE;
+    } else if (350 < soKW) {
+        thanhTien = 25000 + 32500 + 85000 + 165000 + (soKW-350) * KW_CONLAI;
+    } else {
+        alert("Số Kw không hợp lệ");
+    }
+    thanhTien = thanhTien;
+    document.getElementById("result2").innerHTML = thanhTien;
+}
