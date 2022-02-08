@@ -42,13 +42,11 @@ document.getElementById("tinhDiem").onclick = function () {
     var diemDoiTuong = "";
     var thiDau = "";
     var tongDiem = 0;
-     // Điểm liệt
-     if (monA ==0|| monB == 0 || monC || 0){
-        
-     }  
-    // Điểm các môn
-    diemThi = monA + monB + monC;
-   
+    // Điểm liệt
+    if (monA == 0 || monB == 0 || monC || 0) {
+        console.log("Bạn đã rớt do có môn bị 0 điểm")
+        return;
+    }
     // Điểm khu vực 
     if (kv1.checked) {
         diemKhuVuc = KV1;
@@ -62,7 +60,6 @@ document.getElementById("tinhDiem").onclick = function () {
         alert("Khu vực chưa chọn");
     }
     console.log(diemKhuVuc);
-
     // Điểm đối tượng 
     if (dt1.checked) {
         diemDoiTuong = DT1;
@@ -77,10 +74,10 @@ document.getElementById("tinhDiem").onclick = function () {
     }
     console.log(diemDoiTuong);
 
-    tongDiem = diemKhuVuc + diemDoiTuong + diemThi
+    // Điểm các môn
+    diemThi = monA + monB + monC;
 
+    tongDiem = diemKhuVuc + diemDoiTuong + diemThi;
 
-
-
-        document.getElementById("result1").innerHTML = thiDau;
-}
+    document.getElementById("result1").innerHTML = thiDau;
+} 
