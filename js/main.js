@@ -22,68 +22,66 @@ document.getElementById("tinhDiem").onclick = function () {
     const DT3 = 1;
     const DT4 = 0;
 
-
     var monA = Number(document.getElementById("monA").value);
     var monB = Number(document.getElementById("monB").value);
     var monC = Number(document.getElementById("monC").value);
-    var diemThi = 0;
 
-    var kv1 = document.getElementById("kv1");
-    var kv2 = document.getElementById("kv2");
-    var kv3 = document.getElementById("kv3");
-    var kv4 = document.getElementById("kv4");
-
-    var dt1 = document.getElementById("dt1");
-    var dt2 = document.getElementById("dt2");
-    var dt3 = document.getElementById("dt3");
-    var dt4 = document.getElementById("dt4");
-
-    var diemKhuVuc = "";
-    var diemDoiTuong = "";
+    var diemKhuVuc = 0;
+    var diemDoiTuong = 0;
     var thiDau = "";
     var tongDiem = 0;
-    // Điểm các môn
-    diemThi = monA + monB + monC;
+    var diemThi = 0;
 
-    tongDiem = diemKhuVuc + diemDoiTuong + diemThi;
-
-    // Điểm liệt
-    if (monA == 0 || monB == 0 || monC || 0) {
-        console.log("Bạn đã rớt do có môn bị 0 điểm")
-        return;
-    }
     // Điểm khu vực 
-    if (kv1.checked) {
+    var khuVuc = document.getElementById("khuVuc");
+
+    if (khuVuc.value == "A") {
         diemKhuVuc = KV1;
-    } else if (kv2.checked) {
+    } else if (khuVuc.value == "B") {
         diemKhuVuc = KV2;
-    } else if (kv3.checked) {
+    } else if (khuVuc.value == "C") {
         diemKhuVuc = KV3;
-    } else if (kv4.checked) {
+    } else if (khuVuc.value == "D") {
         diemKhuVuc = KV4;
     } else {
         alert("Khu vực chưa chọn");
     }
     console.log(diemKhuVuc);
+
     // Điểm đối tượng 
-    if (dt1.checked) {
+    var doiTuong = document.getElementById("doiTuong");
+    if (doiTuong.value == "1") {
         diemDoiTuong = DT1;
-    } else if (dt2.checked) {
+    } else if (doiTuong.value == "2") {
         diemDoiTuong = DT2;
-    } else if (dt3.checked) {
+    } else if (doiTuong.value == "3") {
         diemDoiTuong = DT3;
-    } else if (dt4.checked) {
+    } else if (doiTuong.value == "4") {
         diemDoiTuong = DT4;
     } else {
         alert("Đối tượng chưa chọn");
     }
     console.log(diemDoiTuong);
 
+    // Điểm các môn
+    diemThi = monA + monB + monC;
+    tongDiem = diemKhuVuc + diemDoiTuong + diemThi;
 
-
-
-
-    document.getElementById("result1").innerHTML = thiDau;
+    // Điểm liệt
+    if (monA == 0 || monB == 0 || monC == 0) {
+        console.log("Bạn đã rớt do có môn bị 0 điểm")
+        return;
+    }
+    var diemChuan = Number(document.getElementById("diemChuan").value);
+    var thongBao = "";
+    if (tongDiem >= diemChuan) {
+        thongBao = "Bạn đã thi đậu; ";
+    } else {
+        thongBao = "Bạn đã thi đậu; ";
+    }
+    
+    thiDau = thongBao + "Số điểm thi: "+ tongDiem;
+        document.getElementById("result1").innerHTML = thiDau;
 }
 
 
@@ -208,9 +206,9 @@ document.getElementById("tinhTienThue").onclick = function () {
  */
 
 document.getElementById("tinhTienCap").onclick = function () {
-    var maKH = document.getElementById("maKH");
+    var maKH = document.getElementById("maKH").value;
     var loaiKH = document.getElementById("chonKH");
-    var ketNoi = Number(document.getElementById("soThuNhap").value);
+    var ketNoi = Number(document.getElementById("ketNoi").value);
     var kenhCaoCap = Number(document.getElementById("kenhCaoCap").value);
 
     const HOADON_DAN = 4.5;
@@ -220,24 +218,38 @@ document.getElementById("tinhTienCap").onclick = function () {
     const HOADON_DN = 15;
     const DICHVU_DN = 75;
     const KENH_DN = 50;
-    var hoaDonKhachHang =0;
-    
+    var hoaDonKhachHang = 0;
+
+    // Kiểm tra khách hàng
+    var khach = "";
     if (loaiKH.value == "1") {
-        hoaDonKhachHang = HOADON_DAN +  DICHVU_DAN + KENH_DAN*kenhCaoCap;
+        khach = "dan";
+    } else if (loaiKH.value == "2") {
+        khach = "doanhNghiep";
     } else {
-        alert("Số kênh không hợp lệ");
+        alert("Loại khách hàng chưa chọn");
     }
-    if (condition) {
-        
-    } else if (condition) {
-        
-    } else {
-        
-    } 
-    
+
+    switch (khach) {
+        case "dan":
+            hoaDonKhachHang = HOADON_DAN + DICHVU_DAN + KENH_DAN * kenhCaoCap
+            break;
+        case "doanhNghiep":
+            if (ketNoi <= 10) {
+                hoaDonKhachHang = HOADON_DN + DICHVU_DN + KENH_DN * kenhCaoCap;
+            } else if (ketNoi > 10) {
+                hoaDonKhachHang = HOADON_DN + DICHVU_DN + KENH_DN * kenhCaoCap + 5 * (ketNoi - 10);
+            } else {
+                console.log("Khách hàng không hợp lệ");
+            }
+            break;
+        default:
+            console.log("Loại khách hàng chưa có");
+            break;
+    }
 
 
-    hoaDonKhachHang = "Mã khách hàng: " + maKH + ";" + "Tiền cáp: " + hoaDonKhachHang;
+    hoaDonKhachHang = "Mã khách hàng: " + maKH + "; " + "Tiền cáp: " + "$ " + hoaDonKhachHang;
     document.getElementById("result4").innerHTML = hoaDonKhachHang;
 }
 function showKH() {
