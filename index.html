@@ -98,7 +98,7 @@
         <form>
             <div class="form-group">
                 <label for="exampleInputPassword1">Nhập họ tên</label>
-                <input type="text" class="form-control" id="ten">
+                <input type="text" class="form-control" id="tenDien">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Nhập số Kw</label>
@@ -106,21 +106,56 @@
             </div>
         </form>
         <button type="submit" class="btn-dien btn-primary" id="tinhTienDien">Trả kết quả</button>
-        <h3>Kết quả của thí sinh</h3>
+        <h3>Tiền điện</h3>
         <p id="result2"></p>
     </div>
 
+    <div class="container">
+        <h2>TÍNH THUẾ THU NHẬP CÁ NHÂN</h2>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Nhập họ tên</label>
+                <input type="text" class="form-control" id="tenThue">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Tổng thu nhập năm</label>
+                <input type="number" class="form-control" id="soThuNhap">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Số người phụ thuộc</label>
+                <input type="number" class="form-control" id="soNguoiPT">
+            </div>
+        </form>
+        <button type="submit" class="btn-Thue btn-primary" id="tinhTienThue">Trả kết quả</button>
+        <h3>Tiền Thuế</h3>
+        <p id="result3"></p>
+    </div>
 
-
-
-
-
-
-
-
-
-
-
+    <div class="container">
+        <h2>TÍNH TIỀN CÁP</h2>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Nhập mã khách hàng</label>
+                <input type="text" class="form-control" id="maKH">
+            </div>
+            <select class="custom-select" id="chonKH" onchange="showKH()">
+                <option selected>Chọn loại khách hàng</option>
+                <option value="1">Nhà dân</option>
+                <option value="2">Doanh nghiệp</option>
+            </select>
+            <div class="form-group collapse in" id="ketNoiShow">
+                <label for="exampleInputPassword1">Số kết nối</label>
+                <input type="number" class="form-control" id="ketNoi">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Số kênh cao cấp</label>
+                <input type="text" class="form-control" id="kenhCaoCap">
+            </div>
+        </form>
+        <button type="submit" class="btn-Cap btn-primary" id="tinhTienCap">Trả kết quả</button>
+        <h3>Tiền Cáp</h3>
+        <p id="result4"></p>
+    </div>
 
 
 
